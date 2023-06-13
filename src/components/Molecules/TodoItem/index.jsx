@@ -21,9 +21,13 @@ function TodoItem({ title, children, isDone = false }) {
           >
             {title}
           </Text>
-          <Input variant="checkbox" onChange={() => setIsChecked(!isChecked)} />
+          <Input
+            variant="checkbox"
+            checked={isChecked}
+            onChange={() => setIsChecked(!isChecked)}
+          />
         </label>
-        <Text variant="p">{children}</Text>
+        {children && <Text variant="p">{children}</Text>}
       </div>
       <div className="buttons flex items-center justify-start gap-3 z-0">
         <Button variant="secondary-gray" className="pt-6">

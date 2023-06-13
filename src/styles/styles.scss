@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import "./font-faces.scss";
+@import "./variables.scss";
 
 * {
   margin: 0;
@@ -10,6 +11,7 @@
   box-sizing: border-box;
   font-family: "Fira Sans", sans-serif;
   transition: 0.5s all;
+  color: $color-dark;
 }
 
 html,

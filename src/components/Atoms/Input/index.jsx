@@ -5,9 +5,10 @@ import classNames from "classnames";
 import { chooseVariantInput } from "@/utils/chooseVariant";
 import "./_.module.scss";
 
-function Input({ type, variant, ...anotherProps }) {
+function Input({ type, variant, className: classNameLocal, ...anotherProps }) {
   const className = classNames(
     `p-3 rounded block bg-gray-dark outline-0 ${chooseVariantInput(variant)}`,
+    classNameLocal,
   );
   const typeFinal = type || variant;
   const input = (
@@ -41,6 +42,7 @@ function Input({ type, variant, ...anotherProps }) {
 Input.propTypes = {
   type: PropTypes.string,
   variant: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 export { Input };

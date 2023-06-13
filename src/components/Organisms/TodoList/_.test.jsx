@@ -1,7 +1,14 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { TodoList } from ".";
+import { TodosProvider } from "../../context/todos";
 
 describe("TodoList", () => {
   afterEach(cleanup);
@@ -24,7 +31,11 @@ describe("TodoList", () => {
       },
     ];
 
-    render(<TodoList todoList={todoList}></TodoList>);
+    render(
+      <TodosProvider>
+        <TodoList todoList={todoList}></TodoList>
+      </TodosProvider>,
+    );
   });
 
   it("should render a TodoList", () => {
@@ -33,7 +44,28 @@ describe("TodoList", () => {
   });
 
   it("should render todo-item molecule", () => {
-    const $todoItem = screen.getAllByTestId("todo-item");
-    expect($todoItem.length).toEqual(3);
+    const $todoItems = screen.getAllByTestId("todo-item");
+    expect($todoItems.length).toEqual(3);
+  });
+
+  it("should render a button atom", () => {
+    const $button = screen.getByTestId("main-button");
+    expect($button).toBeInTheDocument();
+  });
+
+  it("should display the modal molecule when main button has been clicked", async () => {
+    const $mainButton = screen.getByTestId("main-button");
+    fireEvent(
+      $mainButton,
+      new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+      }),
+    );
+
+    await waitFor(() => {
+      const $modal = screen.getByTestId("modal");
+      expect($modal).toBeInTheDocument();
+    });
   });
 });

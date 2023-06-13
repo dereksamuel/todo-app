@@ -7,7 +7,7 @@ describe("Text", () => {
   afterEach(cleanup);
 
   it("should render a heading", () => {
-    render(<Text />);
+    render(<Text>Hello</Text>);
     const $heading = screen.getByTestId("p");
     expect($heading).toBeInTheDocument();
   });

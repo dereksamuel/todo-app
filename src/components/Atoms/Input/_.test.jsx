@@ -7,7 +7,7 @@ describe("Input", () => {
   afterEach(cleanup);
 
   it("should render a input", () => {
-    render(<Input />);
+    render(<Input variant="search" />);
     const $input = screen.getByTestId("input");
     expect($input).toBeInTheDocument();
   });

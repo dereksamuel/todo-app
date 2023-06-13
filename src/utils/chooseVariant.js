@@ -1,7 +1,7 @@
 export const chooseVariantButton = (variant) => {
   const originalTemplate = `text-lg font-extrabold font-primary border-2`;
   const primary = `bg-primary text-dark ${originalTemplate}`;
-  const secondary = `text-dark-70 p-2 font-semibold text-base`;
+  const secondary = `text-dark-70 p-2 font-semibold text-small`;
 
   const variants = {
     primary,
@@ -19,7 +19,7 @@ export const chooseVariantInput = (variant) => {
   const variants = {
     search: "",
     textarea: `max-h-16 pb-12`,
-    checkbox: `border-2 rounded-none w-10 h-10 flex justify-center items-center`,
+    checkbox: `border-2 rounded-none w-8 h-8 flex justify-center items-center`,
     "checkbox--small": `${checkbox} w-5 h-5`,
   };
 
@@ -28,10 +28,10 @@ export const chooseVariantInput = (variant) => {
 
 export const chooseVariantText = (variant) => {
   const variants = {
-    title: "font-black text-3xl uppercase",
-    subtitle: "font-bold text-2xl",
+    title: "font-black text-2xl uppercase",
+    subtitle: "font-bold text-xl leading-6",
     small: "text-base",
-    p: "text-xl opacity-80",
+    p: "text-lg opacity-80",
   };
 
   return variants[variant] || variants.p;

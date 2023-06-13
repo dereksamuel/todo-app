@@ -7,7 +7,7 @@ describe("TodoItem", () => {
   afterEach(cleanup);
 
   beforeEach(() => {
-    render(<TodoItem title="My TODO"></TodoItem>);
+    render(<TodoItem title="My TODO">Hello</TodoItem>);
   });
 
   it("should render a TodoItem", () => {

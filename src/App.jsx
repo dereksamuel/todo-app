@@ -1,6 +1,7 @@
 import React from "react";
 import { Text } from "@/components/Atoms/Text";
 import { TodoList } from "./components/Organisms/TodoList";
+import { TodosProvider } from "./components/context/todos";
 
 function App() {
   const todoList = [
@@ -19,10 +20,10 @@ function App() {
   ];
 
   return (
-    <div>
+    <TodosProvider>
       <Text variant="title">todos</Text>
       <TodoList todoList={todoList} />
-    </div>
+    </TodosProvider>
   );
 }
 

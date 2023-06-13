@@ -1,2 +1,5 @@
 .todo-list-container {
+  &__main-button {
+    transform: translateX(-50%);
+  }
 }
