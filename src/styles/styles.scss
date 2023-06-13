@@ -4,6 +4,7 @@
 
 @import "./font-faces.scss";
 @import "./variables.scss";
+@import "./toastr.scss";
 
 * {
   margin: 0;
@@ -24,4 +25,8 @@ h1,
 h2,
 h3 {
   font-family: "Montserrat", sans-serif;
+}
+
+.toast-success {
+  background-color: $color-primary;
 }

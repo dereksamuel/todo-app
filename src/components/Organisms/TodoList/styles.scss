@@ -1,6 +1,8 @@
 @import "../../../styles/variables.scss";
 
 .todo-list-container {
+  min-height: calc(100% - 275px);
+
   &__main-button {
     transform: translateX(-50%);
     box-shadow: 0 0 20px $color-dark;

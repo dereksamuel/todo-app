@@ -11,17 +11,39 @@ const defaultState = {
 export const todosContext = createContext(defaultState);
 
 function TodosProvider({ children }) {
-  const [state, setState] = useState(defaultState);
+  const [todos, setTodos] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [filterDone, setFilterDone] = useState(true);
+  const [filterPending, setFilterPending] = useState(true);
 
-  const onChangeState = (key, value) => {
-    setState({
-      ...state,
-      [key]: value,
-    });
-  };
+  // const onChangeState = async (...params) => {
+  //   for (const param of params) {
+  //     const key = param[0];
+  //     const value = param[1];
+
+  //     const timer = setTimeout(() => {
+  //       setState({
+  //         ...state,
+  //         [key]: value,
+  //       });
+  //       clearTimeout(timer);
+  //     }, 100);
+  //   }
+  // };
 
   return (
-    <todosContext.Provider value={{ ...state, onChangeState }}>
+    <todosContext.Provider
+      value={{
+        todos,
+        setTodos,
+        isModalVisible,
+        setIsModalVisible,
+        filterDone,
+        setFilterDone,
+        filterPending,
+        setFilterPending,
+      }}
+    >
       {children}
     </todosContext.Provider>
   );

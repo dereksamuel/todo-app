@@ -4,6 +4,7 @@ import { HiPlus } from "react-icons/hi";
 
 import { TodoItem } from "@molecules/TodoItem";
 import { Button } from "@atoms/Button";
+import { Text } from "@atoms/Text";
 import { MainModal } from "@molecules/MainModal";
 
 import "./styles.scss";
@@ -21,10 +22,10 @@ function TodoList({ todoList }) {
           </>
         }
       >
-        {({ onChangeState }) => (
+        {({ setIsModalVisible }) => (
           <Button
             variant="primary-rounded"
-            onClick={() => onChangeState("isModalVisible", true)}
+            onClick={() => setIsModalVisible(true)}
             data-testid="main-button"
             className="w-fit fixed bottom-5 left-1/2 todo-list-container__main-button z-20"
           >
@@ -32,17 +33,17 @@ function TodoList({ todoList }) {
           </Button>
         )}
       </MainModal>
-      {todoList && todoList.length
-        ? todoList.map((todoItem, index) => (
-            <TodoItem
-              key={index}
-              isDone={todoItem.isDone}
-              title={todoItem.title}
-            >
-              {todoItem.description}
-            </TodoItem>
-          ))
-        : null}
+      {todoList && todoList.length ? (
+        todoList.map((todoItem, index) => (
+          <TodoItem key={index} isDone={todoItem.isDone} title={todoItem.title}>
+            {todoItem.description}
+          </TodoItem>
+        ))
+      ) : (
+        <Text className="text-start">
+          Aún no tienes TODOS, por eso animate y crea algunos
+        </Text>
+      )}
     </div>
   );
 }

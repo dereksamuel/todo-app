@@ -7,10 +7,8 @@ import { useTodosContext } from "../../../context/todos";
 import "./styles.scss";
 
 function FilterSection() {
-  const { filterDone, filterPending, onChangeState } = useTodosContext();
-
-  const onChangeFilter = (event) =>
-    onChangeState(event.target.name, event.target.checked);
+  const { filterDone, filterPending, setFilterDone, setFilterPending } =
+    useTodosContext();
 
   return (
     <section data-testid="filter-section" className="px-5 py-10">
@@ -28,7 +26,7 @@ function FilterSection() {
             variant="checkbox--small"
             type="checkbox"
             name="filterDone"
-            onChange={onChangeFilter}
+            onChange={(e) => setFilterDone(e.target.checked)}
             defaultChecked={filterDone}
           />
           <Text variant="small">Completados</Text>
@@ -39,7 +37,7 @@ function FilterSection() {
             variant="checkbox--small"
             type="checkbox"
             name="filterPending"
-            onChange={onChangeFilter}
+            onChange={(e) => setFilterPending(e.target.checked)}
             defaultChecked={filterPending}
           />
           <Text variant="small">Pendientes</Text>
