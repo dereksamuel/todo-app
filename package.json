@@ -20,7 +20,8 @@
     "react-icons": "^4.9.0",
     "react-transition-group": "^4.4.5",
     "sass": "^1.63.3",
-    "toastr": "^2.1.4"
+    "toastr": "^2.1.4",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",

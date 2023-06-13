@@ -34,8 +34,8 @@ function TodoList({ todoList }) {
         )}
       </MainModal>
       {todoList && todoList.length ? (
-        todoList.map((todoItem, index) => (
-          <TodoItem key={index} isDone={todoItem.isDone} title={todoItem.title}>
+        todoList.map((todoItem) => (
+          <TodoItem key={todoItem.id} {...todoItem}>
             {todoItem.description}
           </TodoItem>
         ))

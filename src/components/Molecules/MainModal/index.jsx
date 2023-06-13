@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import toastr from "toastr";
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import { useTodosContext } from "@/context/todos";
 import { MainModalUI } from "./MainModalUI";
@@ -15,6 +16,7 @@ function MainModal({ title, children }) {
 
     const newForm = new FormData($form.current);
     const newTodo = {
+      id: uuidv4(),
       title: newForm.get("name"),
       description: newForm.get("description"),
       isDone: false,

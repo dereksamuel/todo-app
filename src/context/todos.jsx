@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useState } from "react";
 import PropTypes from "prop-types";
 
+import { getStorage, setStorage } from "../utils/localStorage";
+
 const defaultState = {
-  todos: [],
+  todos: getStorage("todos") || [],
   isModalVisible: false,
   filterDone: true,
   filterPending: true,
@@ -11,31 +13,21 @@ const defaultState = {
 export const todosContext = createContext(defaultState);
 
 function TodosProvider({ children }) {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(getStorage("todos") || []);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [filterDone, setFilterDone] = useState(true);
   const [filterPending, setFilterPending] = useState(true);
 
-  // const onChangeState = async (...params) => {
-  //   for (const param of params) {
-  //     const key = param[0];
-  //     const value = param[1];
-
-  //     const timer = setTimeout(() => {
-  //       setState({
-  //         ...state,
-  //         [key]: value,
-  //       });
-  //       clearTimeout(timer);
-  //     }, 100);
-  //   }
-  // };
+  const onChangeSetTodos = (value) => {
+    setTodos(value);
+    setStorage("todos", value);
+  };
 
   return (
     <todosContext.Provider
       value={{
         todos,
-        setTodos,
+        setTodos: onChangeSetTodos,
         isModalVisible,
         setIsModalVisible,
         filterDone,

@@ -1,15 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { HiPencilAlt, HiTrash } from "react-icons/hi";
 
 import { Text } from "@atoms/Text";
 import { Input } from "@atoms/Input";
 import { Button } from "@atoms/Button";
+import { useTodosContext } from "@/context/todos";
 
 import "./styles.scss";
 
-function TodoItem({ title, children, isDone = false }) {
-  const [isChecked, setIsChecked] = useState(isDone);
+function TodoItem({ title, children, isDone, id }) {
+  const { todos, setTodos } = useTodosContext();
+  const onCheck = () => {
+    const newTodos = [...todos];
+    let todo = [...todos].find((todo) => todo.id === id);
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
+    todo = {
+      ...todo,
+      isDone: !isDone,
+    };
+    newTodos[todoIndex] = todo;
+
+    setTodos(newTodos);
+  };
 
   return (
     <div data-testid="todo-item" className="todo-item-container">
@@ -17,14 +30,14 @@ function TodoItem({ title, children, isDone = false }) {
         <label className="todo-item-title-container flex items-center justify-between">
           <Text
             variant="subtitle"
-            className={isChecked ? "line-through opacity-60" : ""}
+            className={isDone ? "line-through opacity-60" : ""}
           >
             {title}
           </Text>
           <Input
             variant="checkbox"
-            checked={isChecked}
-            onChange={() => setIsChecked(!isChecked)}
+            checked={isDone}
+            onChange={() => onCheck()}
           />
         </label>
         {children && <Text variant="p">{children}</Text>}
@@ -45,8 +58,9 @@ function TodoItem({ title, children, isDone = false }) {
 
 TodoItem.propTypes = {
   title: PropTypes.string.isRequired,
-  isDone: PropTypes.bool,
+  isDone: PropTypes.bool.isRequired,
   children: PropTypes.any,
+  id: PropTypes.string.isRequired,
 };
 
 export { TodoItem };
