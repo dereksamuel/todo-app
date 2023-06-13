@@ -2,20 +2,31 @@ import React from "react";
 
 import { Input } from "@atoms/Input";
 import { Text } from "@atoms/Text";
+import { useGlobalsContext } from "@/context/globals";
+import { useTodosContext } from "@/context/todos";
 
 import "./styles.scss";
-import { useGlobalsContext } from "../../../context/globals";
 
 function FilterSection() {
   const { setFilterPending, setFilterDone, filterDone, filterPending } =
     useGlobalsContext();
+  const { setSearch } = useTodosContext();
+  const onSearch = (event) => setSearch(event.target.value);
 
   return (
-    <section data-testid="filter-section" className="px-5 py-10">
+    <section
+      data-testid="filter-section"
+      className="px-5 py-10 md:max-w-3xl md:mx-auto 2xl:max-w-4xl"
+    >
       <Text variant="title" className="mb-7 text-center">
         todos
       </Text>
-      <Input className="w-full" variant="search" placeholder="Buscar..." />
+      <Input
+        className="w-full"
+        variant="search"
+        placeholder="Buscar..."
+        onChange={onSearch}
+      />
       <Text variant="subtitle-filter" className="mb-3 mt-5">
         Filtrar por:
       </Text>

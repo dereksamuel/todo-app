@@ -28,7 +28,7 @@ function Modal({ children }) {
         in={isModalVisible}
         unmountOnExit
       >
-        <div className="modal-content rounded z-30 inset-0 fixed bg-white mx-8 max-w-md top-auto p-8 pt-14">
+        <div className="md:top-1/2 md:bottom-auto modal-content rounded z-30 inset-0 fixed w-full bg-white md:mx-auto max-w-sm top-auto p-8 pt-14 left-1/2 right-auto">
           {children}
         </div>
       </CSSTransition>

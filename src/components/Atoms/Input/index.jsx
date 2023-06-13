@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import { chooseVariantInput } from "@/utils/chooseVariant";
-import "./_.module.scss";
+import "./styles.scss";
 
 function Input({ type, variant, className: classNameLocal, ...anotherProps }) {
   const className = classNames(
