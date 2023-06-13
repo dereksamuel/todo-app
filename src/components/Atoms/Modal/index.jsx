@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 
-import { useTodosContext } from "../../context/todos";
+import { useTodosContext } from "@/context/todos";
 import "./styles.scss";
 
 function Modal({ children }) {

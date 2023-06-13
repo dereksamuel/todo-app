@@ -3,7 +3,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import { FilterSection } from ".";
-import { TodosProvider } from "../../context/todos";
+import { TodosProvider } from "@/context/todos";
 
 describe("FilterSection", () => {
   afterEach(cleanup);
@@ -28,7 +28,7 @@ describe("FilterSection", () => {
 
   it("should render the Texts", () => {
     const $title = screen.getByTestId("title");
-    const $subtitle = screen.getByTestId("subtitle");
+    const $subtitle = screen.getByTestId("subtitle-filter");
     const $small = screen.getAllByTestId("small");
 
     expect($title).toBeInTheDocument(2);

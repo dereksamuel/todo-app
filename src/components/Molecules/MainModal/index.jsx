@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { HiX } from "react-icons/hi";
 
-import { Modal } from "../../Atoms/Modal";
-import { Button } from "../../Atoms/Button";
-import { Input } from "../../Atoms/Input";
-import { useTodosContext } from "../../context/todos";
+import { Modal } from "@atoms/Modal";
+import { Button } from "@atoms/Button";
+import { Input } from "@atoms/Input";
+import { useTodosContext } from "@/context/todos";
 import "./styles.scss";
 
 function MainModal({ title, children }) {

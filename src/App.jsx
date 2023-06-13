@@ -1,8 +1,8 @@
 import React from "react";
 
-import { TodoList } from "./components/Organisms/TodoList";
-import { TodosProvider } from "./components/context/todos";
-import { FilterSection } from "./components/Molecules/FilterSection";
+import { TodoList } from "@organisms/TodoList";
+import { TodosProvider } from "@/context/todos";
+import { FilterSection } from "@molecules/FilterSection";
 
 function App() {
   const todoList = [

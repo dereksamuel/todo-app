@@ -30,6 +30,7 @@ export const chooseVariantText = (variant) => {
   const variants = {
     title: "font-black text-2xl uppercase",
     subtitle: "font-bold text-xl leading-6",
+    "subtitle-filter": "font-bold text-lg leading-6",
     small: "text-base",
     p: "text-lg opacity-80",
   };

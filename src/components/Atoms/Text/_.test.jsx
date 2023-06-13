@@ -24,6 +24,12 @@ describe("Text", () => {
     expect($heading).toBeInTheDocument();
   });
 
+  it("should render a subtitle h3", () => {
+    render(<Text variant="subtitle-filter">Hola mundo</Text>);
+    const $heading = screen.getByTestId("subtitle-filter");
+    expect($heading).toBeInTheDocument();
+  });
+
   it("should render a small tag", () => {
     render(<Text variant="small">Hola mundo</Text>);
     const $heading = screen.getByTestId("small");

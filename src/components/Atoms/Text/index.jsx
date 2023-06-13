@@ -18,6 +18,10 @@ function Text({ variant, children, className: classNameLocal }) {
     <h2 data-testid="subtitle" className={className}>
       {children}
     </h2>
+  ) : variant === "subtitle-filter" ? (
+    <h3 data-testid="subtitle-filter" className={className}>
+      {children}
+    </h3>
   ) : variant === "small" ? (
     <small data-testid="small" className={className}>
       {children}

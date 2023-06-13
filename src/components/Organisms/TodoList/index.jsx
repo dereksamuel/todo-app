@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { HiPlus } from "react-icons/hi";
 
-import { TodoItem } from "../../Molecules/TodoItem";
-import { Button } from "../../Atoms/Button";
-import { MainModal } from "../../Molecules/MainModal";
+import { TodoItem } from "@molecules/TodoItem";
+import { Button } from "@atoms/Button";
+import { MainModal } from "@molecules/MainModal";
 
 import "./styles.scss";
 

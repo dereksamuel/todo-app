@@ -8,7 +8,7 @@ import {
 } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { TodoList } from ".";
-import { TodosProvider } from "../../context/todos";
+import { TodosProvider } from "@/context/todos";
 
 describe("TodoList", () => {
   afterEach(cleanup);

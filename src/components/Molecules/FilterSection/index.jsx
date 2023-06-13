@@ -1,7 +1,7 @@
 import React from "react";
 // import PropTypes from "prop-types";
-import { Input } from "../../Atoms/Input";
-import { Text } from "../../Atoms/Text";
+import { Input } from "@atoms/Input";
+import { Text } from "@atoms/Text";
 
 import "./styles.scss";
 
@@ -12,7 +12,7 @@ function FilterSection() {
         todos
       </Text>
       <Input className="w-full" variant="search" placeholder="Buscar..." />
-      <Text variant="subtitle" className="mb-3 mt-5">
+      <Text variant="subtitle-filter" className="mb-3 mt-5">
         Filtrar por:
       </Text>
       <div>

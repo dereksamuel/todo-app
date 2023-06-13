@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { HiPencilAlt, HiTrash } from "react-icons/hi";
 
-import { Text } from "../../Atoms/Text";
-import { Input } from "../../Atoms/Input";
-import { Button } from "../../Atoms/Button";
+import { Text } from "@atoms/Text";
+import { Input } from "@atoms/Input";
+import { Button } from "@atoms/Button";
 
 import "./styles.scss";
 
