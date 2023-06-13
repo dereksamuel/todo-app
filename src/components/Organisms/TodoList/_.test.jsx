@@ -11,16 +11,19 @@ describe("TodoList", () => {
   beforeEach(() => {
     const todosDefault = [
       {
+        id: "54s54ad",
         title: "Hacer mis tareas",
         description: "Si, hacer mis tareas. Pero hoy",
         isDone: false,
       },
       {
+        id: "54s54asad",
         title: "Hacer la cama",
         description: "Debo levantarme a las 8 am",
         isDone: true,
       },
       {
+        id: "as99a",
         title: "Debo cumplir con todo hoy",
         isDone: false,
       },
