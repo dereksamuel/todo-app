@@ -1,7 +1,8 @@
 import React from "react";
-import { Text } from "@/components/Atoms/Text";
+
 import { TodoList } from "./components/Organisms/TodoList";
 import { TodosProvider } from "./components/context/todos";
+import { FilterSection } from "./components/Molecules/FilterSection";
 
 function App() {
   const todoList = [
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <TodosProvider>
-      <Text variant="title">todos</Text>
+      <FilterSection />
       <TodoList todoList={todoList} />
     </TodosProvider>
   );
