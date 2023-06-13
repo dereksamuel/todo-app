@@ -10,6 +10,7 @@ export default {
       "gray-dark": "#d9d9d9",
       dark: "#1d1d1d",
       danger: "#df8080",
+      "danger-active": "#ec6464",
       white: "#ffffff",
     },
     fontFamily: {

@@ -10,7 +10,8 @@ import { useTodosContext } from "@/context/todos";
 import "./styles.scss";
 
 function TodoItem({ title, children, isDone, id }) {
-  const { todos, setTodos } = useTodosContext();
+  const { todos, setTodos, setEditableData, setIsModalVisible, setDeleteData } =
+    useTodosContext();
   const onCheck = () => {
     const newTodos = [...todos];
     let todo = [...todos].find((todo) => todo.id === id);
@@ -23,6 +24,20 @@ function TodoItem({ title, children, isDone, id }) {
 
     setTodos(newTodos);
   };
+  const onEdit = () => {
+    setIsModalVisible(true);
+    setEditableData({
+      title,
+      id,
+      description: children,
+      isDone,
+    });
+  };
+
+  const onDelete = () => {
+    setIsModalVisible(true);
+    setDeleteData({ id });
+  };
 
   return (
     <div data-testid="todo-item" className="todo-item-container">
@@ -34,20 +49,16 @@ function TodoItem({ title, children, isDone, id }) {
           >
             {title}
           </Text>
-          <Input
-            variant="checkbox"
-            checked={isDone}
-            onChange={() => onCheck()}
-          />
+          <Input variant="checkbox" checked={isDone} onChange={onCheck} />
         </label>
         {children && <Text variant="p">{children}</Text>}
       </div>
       <div className="buttons flex items-center justify-start gap-3 z-0">
-        <Button variant="secondary-gray" className="pt-6">
+        <Button variant="secondary-gray" className="pt-6" onClick={onEdit}>
           <span>Editar</span>
           <HiPencilAlt size={24} />
         </Button>
-        <Button variant="secondary-danger" className="pt-6">
+        <Button variant="secondary-danger" className="pt-6" onClick={onDelete}>
           <span>Borrar</span>
           <HiTrash size={24} />
         </Button>

@@ -3,20 +3,12 @@ import PropTypes from "prop-types";
 
 import { getStorage, setStorage } from "../utils/localStorage";
 
-const defaultState = {
-  todos: getStorage("todos") || [],
-  isModalVisible: false,
-  filterDone: true,
-  filterPending: true,
-};
-
-export const todosContext = createContext(defaultState);
+export const todosContext = createContext({});
 
 function TodosProvider({ children }) {
   const [todos, setTodos] = useState(getStorage("todos") || []);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [filterDone, setFilterDone] = useState(true);
-  const [filterPending, setFilterPending] = useState(true);
+  const [editableData, setEditableData] = useState(null);
+  const [deleteData, setDeleteData] = useState(false);
 
   const onChangeSetTodos = (value) => {
     setTodos(value);
@@ -28,12 +20,10 @@ function TodosProvider({ children }) {
       value={{
         todos,
         setTodos: onChangeSetTodos,
-        isModalVisible,
-        setIsModalVisible,
-        filterDone,
-        setFilterDone,
-        filterPending,
-        setFilterPending,
+        editableData,
+        setEditableData,
+        deleteData,
+        setDeleteData,
       }}
     >
       {children}

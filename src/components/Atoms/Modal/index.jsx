@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import { createPortal } from "react-dom";
 import { CSSTransition } from "react-transition-group";
 
-import { useTodosContext } from "@/context/todos";
+import { useGlobalsContext } from "@/context/globals";
 import "./styles.scss";
 
 function Modal({ children }) {
-  const { isModalVisible, setIsModalVisible } = useTodosContext();
+  const { isModalVisible, setIsModalVisible } = useGlobalsContext();
 
   return createPortal(
     <div data-testid="modal" className="modal-container">

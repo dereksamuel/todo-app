@@ -2,13 +2,13 @@ import React from "react";
 
 import { Input } from "@atoms/Input";
 import { Text } from "@atoms/Text";
-import { useTodosContext } from "../../../context/todos";
 
 import "./styles.scss";
+import { useGlobalsContext } from "../../../context/globals";
 
 function FilterSection() {
-  const { filterDone, filterPending, setFilterDone, setFilterPending } =
-    useTodosContext();
+  const { setFilterPending, setFilterDone, filterDone, filterPending } =
+    useGlobalsContext();
 
   return (
     <section data-testid="filter-section" className="px-5 py-10">

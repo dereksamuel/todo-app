@@ -8,6 +8,7 @@ export const chooseVariantButton = (variant) => {
     "primary-rounded": `${primary} rounded-full`,
     "secondary-gray": `bg-gray ${secondary}`,
     "secondary-danger": `bg-danger ${secondary}`,
+    danger: `${originalTemplate} bg-danger-active`,
     dark: `${originalTemplate} bg-dark rounded-full text-white`,
   };
 

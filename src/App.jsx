@@ -2,15 +2,14 @@ import React from "react";
 
 import { TodoList } from "@organisms/TodoList";
 import { FilterSection } from "@molecules/FilterSection";
-import { useTodosContext } from "@/context/todos";
+import { MainModal } from "@molecules/MainModal";
 
 function App() {
-  const { todos } = useTodosContext();
-
   return (
     <>
+      <MainModal />
       <FilterSection />
-      <TodoList todoList={todos} />
+      <TodoList />
     </>
   );
 }
