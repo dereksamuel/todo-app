@@ -17,6 +17,9 @@ function App() {
     {
       title: "Debo cumplir con todo hoy",
     },
+    {
+      title: "Debo cumplir con todo hoy as",
+    },
   ];
 
   return (

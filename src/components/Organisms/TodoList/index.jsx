@@ -26,7 +26,7 @@ function TodoList({ todoList }) {
             variant="primary-rounded"
             onClick={() => setIsModalHidden(true)}
             data-testid="main-button"
-            className="w-fit fixed bottom-5 left-1/2 todo-list-container__main-button"
+            className="w-fit fixed bottom-5 left-1/2 todo-list-container__main-button z-20"
           >
             <HiPlus size={40} />
           </Button>

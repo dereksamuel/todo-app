@@ -1,5 +1,8 @@
+@import "../../../styles/variables.scss";
+
 .todo-list-container {
   &__main-button {
     transform: translateX(-50%);
+    box-shadow: 0 0 20px $color-dark;
   }
 }
