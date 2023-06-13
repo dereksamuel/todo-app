@@ -8,14 +8,17 @@ import { Button } from "../../Atoms/Button";
 
 import "./styles.scss";
 
-function TodoItem({ title, children }) {
-  const [isChecked, setIsChecked] = useState(false);
+function TodoItem({ title, children, isDone = false }) {
+  const [isChecked, setIsChecked] = useState(isDone);
 
   return (
     <div data-testid="todo-item" className="todo-item-container">
       <div className="todo-item rounded-e-md p-3 z-10 relative bg-white">
         <label className="todo-item-title-container flex items-center justify-between">
-          <Text variant="subtitle" className={isChecked ? "line-through" : ""}>
+          <Text
+            variant="subtitle"
+            className={isChecked ? "line-through opacity-60" : ""}
+          >
             {title}
           </Text>
           <Input variant="checkbox" onChange={() => setIsChecked(!isChecked)} />
@@ -38,6 +41,7 @@ function TodoItem({ title, children }) {
 
 TodoItem.propTypes = {
   title: PropTypes.string.isRequired,
+  isDone: PropTypes.bool,
   children: PropTypes.any,
 };
 
