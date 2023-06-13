@@ -7,25 +7,25 @@ import { useTodosContext } from "@/context/todos";
 import "./styles.scss";
 
 function Modal({ children }) {
-  const { isModalHidden, setIsModalHidden } = useTodosContext();
+  const { isModalVisible, setIsModalVisible } = useTodosContext();
 
   return createPortal(
     <div data-testid="modal" className="modal-container">
       <CSSTransition
         classNames="fadeIn"
         timeout={300}
-        in={isModalHidden}
+        in={isModalVisible}
         unmountOnExit
       >
         <div
           className="overlay inset-0 fixed z-20"
-          onClick={() => setIsModalHidden(false)}
+          onClick={() => setIsModalVisible(false)}
         ></div>
       </CSSTransition>
       <CSSTransition
         classNames="moveIn"
         timeout={150}
-        in={isModalHidden}
+        in={isModalVisible}
         unmountOnExit
       >
         <div className="modal-content rounded z-30 inset-0 fixed bg-white mx-8 max-w-md top-auto p-8 pt-14">

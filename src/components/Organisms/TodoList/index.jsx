@@ -21,10 +21,10 @@ function TodoList({ todoList }) {
           </>
         }
       >
-        {({ setIsModalHidden }) => (
+        {({ onChangeState }) => (
           <Button
             variant="primary-rounded"
-            onClick={() => setIsModalHidden(true)}
+            onClick={() => onChangeState("isModalVisible", true)}
             data-testid="main-button"
             className="w-fit fixed bottom-5 left-1/2 todo-list-container__main-button z-20"
           >

@@ -9,7 +9,7 @@ import { useTodosContext } from "@/context/todos";
 import "./styles.scss";
 
 function MainModal({ title, children }) {
-  const { setIsModalHidden } = useTodosContext();
+  const { onChangeState } = useTodosContext();
 
   return (
     <>
@@ -17,7 +17,7 @@ function MainModal({ title, children }) {
         <Button
           variant="dark"
           data-testid="close-button"
-          onClick={() => setIsModalHidden(false)}
+          onClick={() => onChangeState("isModalVisible", false)}
           className="absolute close-button left-1/2"
         >
           <HiX size={38} className="text-white" />
@@ -46,7 +46,7 @@ function MainModal({ title, children }) {
           </Button>
         </form>
       </Modal>
-      {children({ setIsModalHidden })}
+      {children({ onChangeState })}
     </>
   );
 }

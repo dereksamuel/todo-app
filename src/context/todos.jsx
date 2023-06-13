@@ -1,19 +1,27 @@
 import React, { createContext, useContext, useState } from "react";
 import PropTypes from "prop-types";
 
-export const todosContext = createContext({
+const defaultState = {
   todos: [],
-  isModalHidden: false,
-});
+  isModalVisible: false,
+  filterDone: true,
+  filterPending: true,
+};
+
+export const todosContext = createContext(defaultState);
 
 function TodosProvider({ children }) {
-  const [todos, setTodos] = useState();
-  const [isModalHidden, setIsModalHidden] = useState();
+  const [state, setState] = useState(defaultState);
+
+  const onChangeState = (key, value) => {
+    setState({
+      ...state,
+      [key]: value,
+    });
+  };
 
   return (
-    <todosContext.Provider
-      value={{ todos, isModalHidden, setIsModalHidden, setTodos }}
-    >
+    <todosContext.Provider value={{ ...state, onChangeState }}>
       {children}
     </todosContext.Provider>
   );
