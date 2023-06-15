@@ -14,14 +14,4 @@ describe("Modal", () => {
     const $modal = screen.getByTestId("modal");
     expect($modal).toBeInTheDocument();
   });
-
-  // it("should render always a button", () => {
-  //   const $mainButton = screen.getByTestId("main-button");
-  //   expect($mainButton).toBeInTheDocument();
-  // });
-
-  // it("should render always a button", () => {
-  //   const $closeButton = screen.getByTestId("close-button");
-  //   expect($closeButton).toBeInTheDocument();
-  // });
 });
